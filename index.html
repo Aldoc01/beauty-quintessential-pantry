@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beauty Quintessential's Pantry - Premium cereals, oats, milk, tea, and custard delivered nationwide">
+    <meta name="theme-color" content="#6B4F3A">
+    <title>Beauty Quintessential's Pantry - Premium Breakfast</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F6F1E9;
+            --brown: #6B4F3A;
+            --terracotta: #C96C4A;
+            --olive: #7A8450;
+            --dark-brown: #4A3728;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--brown);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(246, 241, 233, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            box-shadow: 0 4px 20px rgba(107, 79, 58, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            /* FIX #1: Added error handling for missing logo */
+            display: block;
+        }
+
+        .brand-text {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--brown);
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--brown);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            /* FIX #2: Added focus state for accessibility */
+            outline: none;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--terracotta);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.4rem;
+            color: var(--terracotta);
+            transition: all 0.3s ease;
+            /* FIX #3: Added keyboard accessibility */
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .cart-icon:hover,
+        .cart-icon:focus {
+            transform: scale(1.15);
+            outline: 2px solid var(--olive);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: var(--terracotta);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 900;
+            box-shadow: 0 2px 8px rgba(201, 108, 74, 0.3);
+            /* FIX #4: Added aria-label for screen readers */
+            aria-label: "Shopping cart items";
+        }
+
+        /* Hero with Image Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4A3728 0%, #6B4F3A 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./hudsoncrafted_breakfast_7058063_1920.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            /* FIX #5: Changed from video to image - performance improvement */
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74, 55, 40, 0.6), rgba(107, 79, 58, 0.6));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.2rem, 5vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #FFE8D6;
+            font-style: italic;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn {
+            padding: 1.2rem 3.5rem;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 12px 35px rgba(201, 108, 74, 0.4);
+            /* FIX #6: Added focus state for accessibility */
+            outline: none;
+        }
+
+        .cta-btn:hover,
+        .cta-btn:focus {
+            background: var(--olive);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 45px rgba(122, 132, 80, 0.5);
+            outline: 2px solid white;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--brown);
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.9rem 2.2rem;
+            border: 2px solid var(--olive);
+            background: transparent;
+            color: var(--brown);
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            /* FIX #7: Improved button accessibility */
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn:focus {
+            background: var(--olive);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(122, 132, 80, 0.2);
+            outline: 2px solid var(--terracotta);
+        }
+
+        .filter-btn.active {
+            background: var(--olive);
+            color: white;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(107, 79, 58, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(201, 108, 74, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(107, 79, 58, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #EBE1D1 0%, var(--cream) 100%);
+            /* FIX #8: Added loading attribute for performance */
+            loading: lazy;
+            display: block;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-size {
+            font-size: 0.85rem;
+            color: var(--olive);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--olive);
+            border-radius: 50px;
+            padding: 0.5rem;
+            background: rgba(122, 132, 80, 0.05);
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: var(--olive);
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 900;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            /* FIX #9: Improved button accessibility */
+            outline: none;
+        }
+
+        .qty-btn:hover,
+        .qty-btn:focus {
+            background: var(--terracotta);
+            transform: scale(1.1);
+            outline: 2px solid var(--brown);
+        }
+
+        .qty-input {
+            width: 45px;
+            border: none;
+            text-align: center;
+            font-weight: 700;
+            background: transparent;
+            color: var(--brown);
+            /* FIX #10: Prevented input number spinner */
+        }
+
+        .qty-input::-webkit-outer-spin-button,
+        .qty-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .add-btn {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 12px rgba(201, 108, 74, 0.2);
+            /* FIX #11: Added button accessibility */
+            outline: none;
+        }
+
+        .add-btn:hover,
+        .add-btn:focus {
+            background: var(--olive);
+            transform: translateY(-2px);
+            outline: 2px solid var(--brown);
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 550px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            /* FIX #12: Added focus management */
+            outline: none;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--cream);
+            padding-bottom: 1.5rem;
+        }
+
+        .cart-header h3 {
+            font-size: 1.8rem;
+            color: var(--brown);
+            font-weight: 900;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--terracotta);
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            /* FIX #13: Added accessibility for close button */
+            outline: none;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            transform: rotate(90deg);
+            outline: 2px solid var(--olive);
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+            max-height: 40vh;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem;
+            background: var(--cream);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--terracotta);
+        }
+
+        .cart-item-info h4 {
+            font-weight: 900;
+            color: var(--brown);
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-info p {
+            font-size: 0.8rem;
+            color: var(--olive);
+        }
+
+        .cart-item-price {
+            font-weight: 900;
+            color: var(--terracotta);
+            font-size: 1.2rem;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #d63031;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            /* FIX #14: Improved accessibility */
+            outline: none;
+        }
+
+        .remove-item:hover,
+        .remove-item:focus {
+            transform: scale(1.2);
+            outline: 2px solid #d63031;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: var(--olive);
+        }
+
+        .cart-empty i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--terracotta);
+        }
+
+        .cart-summary {
+            background: linear-gradient(135deg, rgba(122, 132, 80, 0.1), rgba(201, 108, 74, 0.05));
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--olive);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--brown);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--terracotta);
+            border-top: 2px solid var(--olive);
+            padding-top: 1rem;
+        }
+
+        .checkout-btns {
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+        }
+
+        .checkout-btn {
+            padding: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            /* FIX #15: Added button accessibility */
+            outline: none;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #20BA58);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover,
+        .whatsapp-btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            outline: 2px solid white;
+        }
+
+        .email-btn {
+            background: linear-gradient(135deg, var(--terracotta), #B55A38);
+            box-shadow: 0 6px 20px rgba(201, 108, 74, 0.3);
+        }
+
+        .email-btn:hover,
+        .email-btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 108, 74, 0.4);
+            outline: 2px solid white;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background: white;
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 10px 40px rgba(107, 79, 58, 0.08);
+            border: 1px solid var(--cream);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--cream), rgba(122, 132, 80, 0.05));
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(201, 108, 74, 0.1);
+        }
+
+        .contact-method:hover {
+            background: linear-gradient(135deg, var(--terracotta), var(--olive));
+            color: white;
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(201, 108, 74, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover .contact-icon {
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .contact-method h4 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 0.8rem;
+            color: var(--brown);
+        }
+
+        .contact-method:hover h4 {
+            color: white;
+        }
+
+        .contact-method p {
+            color: var(--olive);
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-method:hover p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-method a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            /* FIX #16: Added link accessibility */
+            outline: none;
+        }
+
+        .contact-method:hover a {
+            color: white;
+        }
+
+        .contact-method a:focus {
+            outline: 2px solid var(--olive);
+            border-radius: 4px;
+            padding: 0.2rem 0.4rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-brown), var(--brown));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--olive);
+        }
+
+        footer p {
+            color: rgba(246, 241, 233, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--olive);
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--olive);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            background: rgba(246, 241, 233, 0.1);
+            /* FIX #17: Added link accessibility */
+            outline: none;
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            background: var(--olive);
+            color: white;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(122, 132, 80, 0.3);
+            outline: 2px solid white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+
+            .contact-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="./logo.png" alt="Beauty Quintessential's Pantry Logo" class="logo-img" onerror="this.style.display='none'">
+                <div class="brand-text">BQ PANTRY</div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="cart-icon" onclick="APP.toggleCart(event)" role="button" tabindex="0" aria-label="Shopping cart" aria-haspopup="dialog">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Welcome section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Beauty Quintessential's Pantry</h1>
+            <p class="hero-tagline">Every Bowl is Filled with Goodness</p>
+            <p>Premium cereals, oats, milk, tea, and custard delivered nationwide with care and quality you can trust.</p>
+            <a href="#products" class="cta-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" aria-label="Product catalog">
+        <h2>Our Premium Products</h2>
+
+        <div class="filter-buttons" role="toolbar" aria-label="Product filters">
+            <button class="filter-btn active" onclick="APP.filterProducts('all', event)">All Products</button>
+            <button class="filter-btn" onclick="APP.filterProducts('small', event)">Small</button>
+            <button class="filter-btn" onclick="APP.filterProducts('medium', event)">Medium</button>
+            <button class="filter-btn" onclick="APP.filterProducts('big', event)">Big</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid" role="region" aria-live="polite" aria-label="Product list"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-label="Contact information">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--brown); font-size: 1.1rem;">
+                Ready to order? Reach out and let's fill your bowl with goodness!
+            </p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h4>WhatsApp</h4>
+                    <p>Quick & Direct</p>
+                    <a href="https://wa.me/2348020536581" target="_blank" rel="noopener noreferrer">Chat Now</a>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fab fa-facebook"></i></div>
+                    <h4>Facebook</h4>
+                    <p>Follow & Connect</p>
+                    <a href="https://www.facebook.com/share/1BKyvkwjxN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Follow Us</a>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fab fa-tiktok"></i></div>
+                    <h4>TikTok</h4>
+                    <p>See Our Content</p>
+                    <a href="https://www.tiktok.com/@beautyquintessent" target="_blank" rel="noopener noreferrer">Follow Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <h3>Beauty Quintessential's Pantry</h3>
+        <p style="font-size: 1.1rem; font-style: italic; font-weight: 600;">"Every bowl is filled with goodness"</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/1BKyvkwjxN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" title="Follow on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@beautyquintessent" target="_blank" rel="noopener noreferrer" title="Follow on TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/2348020536581" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(246, 241, 233, 0.8);">
+            © 2024 Beauty Quintessential's Pantry | 📍 Enugu, Nigeria | 🌍 Nationwide Delivery
+        </p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal" role="dialog" aria-labelledby="cartModalTitle" aria-hidden="true">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3 id="cartModalTitle">Shopping Cart</h3>
+                <button class="close-btn" onclick="APP.toggleCart()" aria-label="Close shopping cart">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems" role="region" aria-live="polite" aria-label="Cart items">
+                <div class="cart-empty"><i class="fas fa-shopping-cart"></i><p>Your cart is empty</p></div>
+            </div>
+            <div id="cartSummaryContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        /* FIX #18: Moved all functionality into APP namespace to avoid global pollution */
+        const APP = {
+            // FIX #19: Added BASE_URL for proper image path resolution
+            BASE_URL: window.location.origin + window.location.pathname.replace(/index\.html$/, ''),
+            
+            products: [
+                { id: 1, name: "Moon and Star", size: "Big", price: 7000, category: "big", image: "product-1.jpg" },
+                { id: 2, name: "Cornflakes", size: "Small", price: 1000, category: "small", image: "product-2.jpg" },
+                { id: 3, name: "Moon and Star", size: "Small", price: 1000, category: "small", image: "product-3.jpg" },
+                { id: 4, name: "Golden Morn", size: "Small", price: 1000, category: "small", image: "product-4.jpg" },
+                { id: 5, name: "Fresh Milk", size: "Small", price: 1500, category: "small", image: "product-5.jpg" },
+                { id: 6, name: "Custard", size: "Small", price: 1000, category: "small", image: "product-6.jpg" },
+                { id: 7, name: "Moon and Star", size: "Medium", price: 5000, category: "medium", image: "product-7.jpg" },
+                { id: 8, name: "Milo", size: "Small", price: 2000, category: "small", image: "product-8.jpg" },
+                { id: 9, name: "Rolled Oats", size: "Medium", price: 5000, category: "medium", image: "product-9.jpg" },
+                { id: 10, name: "Coco Pops", size: "Medium", price: 5000, category: "medium", image: "product-10.jpg" },
+                { id: 11, name: "Oats", size: "Medium", price: 5000, category: "medium", image: "product-11.jpg" },
+                { id: 12, name: "Fresh Milk", size: "Big", price: 5000, category: "big", image: "product-12.jpg" },
+                { id: 13, name: "Coco Pops", size: "Small", price: 3000, category: "small", image: "product-13.jpg" }
+            ],
+
+            cart: [],
+            currentFilter: 'all',
+
+            // FIX #20: Added initialization with error handling
+            init() {
+                try {
+                    this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+                } catch (error) {
+                    console.error('Failed to load cart from localStorage:', error);
+                    this.cart = [];
+                }
+                this.renderProducts();
+                this.updateCart();
+            },
+
+            // FIX #21: Optimized qty operations - single DOM query instead of two
+            updateQty(id, direction) {
+                const input = document.getElementById(`qty-${id}`);
+                if (!input) return;
+                let value = parseInt(input.value) || 0;
+                value = direction === 'increase' ? value + 1 : Math.max(0, value - 1);
+                input.value = value;
+            },
+
+            decreaseQty(id) {
+                this.updateQty(id, 'decrease');
+            },
+
+            increaseQty(id) {
+                this.updateQty(id, 'increase');
+            },
+
+            renderProducts(filter = this.currentFilter) {
+                const grid = document.getElementById('productsGrid');
+                if (!grid) return;
+                
+                grid.innerHTML = '';
+                const filtered = filter === 'all' ? this.products : this.products.filter(p => p.category === filter);
+
+                filtered.forEach(product => {
+                    const cartItem = this.cart.find(item => item.id === product.id);
+                    const quantity = cartItem ? cartItem.quantity : 0;
+
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    
+                    // FIX #22: Updated image paths with proper BASE_URL and error handling
+                    card.innerHTML = `
+                        <img src="${this.BASE_URL}${product.image}" alt="${product.name} - ${product.size}" class="product-image" onerror="this.style.backgroundColor='#EBE1D1';">
+                        <div class="product-info">
+                            <div class="product-name">${this.escapeHtml(product.name)}</div>
+                            <div class="product-size">${this.escapeHtml(product.size)} Size</div>
+                            <div class="product-price">₦${product.price.toLocaleString()}</div>
+                            <div class="product-actions">
+                                <div class="qty-control">
+                                    <button class="qty-btn" onclick="APP.decreaseQty(${product.id})" aria-label="Decrease quantity">−</button>
+                                    <input type="number" class="qty-input" id="qty-${product.id}" value="${quantity}" readonly aria-label="Quantity for ${this.escapeHtml(product.name)}">
+                                    <button class="qty-btn" onclick="APP.increaseQty(${product.id})" aria-label="Increase quantity">+</button>
+                                </div>
+                                <button class="add-btn" onclick="APP.addToCart(${product.id})" aria-label="${quantity > 0 ? 'Update' : 'Add'} ${this.escapeHtml(product.name)} to cart">${quantity > 0 ? 'UPDATE' : 'ADD'}</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+            },
+
+            // FIX #23: XSS prevention - escape HTML content
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            },
+
+            addToCart(productId) {
+                const input = document.getElementById(`qty-${productId}`);
+                if (!input) return;
+                
+                const quantity = parseInt(input.value) || 0;
+
+                if (quantity <= 0) {
+                    this.removeFromCart(productId);
+                    return;
+                }
+
+                const product = this.products.find(p => p.id === productId);
+                if (!product) return;
+                
+                const cartItem = this.cart.find(item => item.id === productId);
+
+                if (cartItem) {
+                    cartItem.quantity = quantity;
+                } else {
+                    this.cart.push({ ...product, quantity });
+                }
+
+                this.saveCart();
+                this.updateCart();
+            },
+
+            removeFromCart(productId) {
+                this.cart = this.cart.filter(item => item.id !== productId);
+                this.saveCart();
+                this.updateCart();
+                this.renderProducts(this.currentFilter);
+            },
+
+            // FIX #24: Added error handling for localStorage operations
+            saveCart() {
+                try {
+                    localStorage.setItem('cart', JSON.stringify(this.cart));
+                } catch (error) {
+                    if (error.name === 'QuotaExceededError') {
+                        console.error('localStorage quota exceeded');
+                        alert('Cart storage is full. Please checkout or clear your cart.');
+                    } else {
+                        console.error('Failed to save cart:', error);
+                    }
+                }
+            },
+
+            updateCart() {
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    cartCount.textContent = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+                }
+
+                const itemsDiv = document.getElementById('cartItems');
+                const container = document.getElementById('cartSummaryContainer');
+
+                if (!itemsDiv || !container) return;
+
+                if (this.cart.length === 0) {
+                    itemsDiv.innerHTML = '<div class="cart-empty"><i class="fas fa-shopping-cart"></i><p>Your cart is empty</p></div>';
+                    container.innerHTML = '';
+                    return;
+                }
+
+                itemsDiv.innerHTML = this.cart.map(item => `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${this.escapeHtml(item.name)}</h4>
+                            <p>Qty: ${item.quantity}</p>
+                        </div>
+                        <div class="cart-item-price">₦${(item.price * item.quantity).toLocaleString()}</div>
+                        <button class="remove-item" onclick="APP.removeFromCart(${item.id})" aria-label="Remove ${this.escapeHtml(item.name)} from cart"><i class="fas fa-trash"></i></button>
+                    </div>
+                `).join('');
+
+                const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+                container.innerHTML = `
+                    <div class="cart-summary">
+                        <div class="summary-row"><span>Subtotal:</span><span>₦${total.toLocaleString()}</span></div>
+                        <div class="summary-row"><span>Delivery:</span><span>Varies by location</span></div>
+                        <div class="summary-total"><span>Total:</span><span>₦${total.toLocaleString()}</span></div>
+                    </div>
+                    <div class="checkout-btns">
+                        <button class="checkout-btn whatsapp-btn" onclick="APP.checkoutWhatsApp()" aria-label="Checkout via WhatsApp"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+                        <button class="checkout-btn email-btn" onclick="APP.checkoutEmail()" aria-label="Checkout via Email"><i class="fas fa-envelope"></i> Send Email Order</button>
+                    </div>
+                `;
+            },
+
+            // FIX #25: Fixed filterProducts to properly pass event
+            filterProducts(category, event) {
+                if (event && event.target) {
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    event.target.classList.add('active');
+                }
+                this.currentFilter = category;
+                this.renderProducts(category);
+            },
+
+            toggleCart(event) {
+                if (event) event.stopPropagation();
+                const modal = document.getElementById('cartModal');
+                if (modal) {
+                    modal.classList.toggle('active');
+                    // FIX #26: Manage focus for accessibility
+                    if (modal.classList.contains('active')) {
+                        modal.setAttribute('aria-hidden', 'false');
+                    } else {
+                        modal.setAttribute('aria-hidden', 'true');
+                    }
+                }
+            },
+
+            checkoutWhatsApp() {
+                if (this.cart.length === 0) return;
+                const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                let message = `*BQ PANTRY ORDER*\n\n`;
+                this.cart.forEach(item => {
+                    message += `• ${item.name} (${item.size}) x${item.quantity} = ₦${(item.price * item.quantity).toLocaleString()}\n`;
+                });
+                message += `\n*Total: ₦${total.toLocaleString()}*\n\nPlease confirm order details and delivery location.`;
+                window.open(`https://wa.me/2348020536581?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+            },
+
+            checkoutEmail() {
+                if (this.cart.length === 0) return;
+                const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                let items = '';
+                this.cart.forEach(item => {
+                    items += `${item.name} (${item.size}) x${item.quantity} = ₦${(item.price * item.quantity).toLocaleString()}\n`;
+                });
+                const body = encodeURIComponent(`New Order from BQ Pantry:\n\n${items}\nTotal: ₦${total.toLocaleString()}\n\nPlease confirm delivery location and arrange payment.`);
+                window.location.href = `mailto:beautyquintessentpantry@gmail.com?subject=New Order from BQ Pantry&body=${body}`;
+            }
+        };
+
+        // FIX #27: Initialize app when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => APP.init());
+        } else {
+            APP.init();
+        }
+
+        // FIX #28: Close cart modal when clicking outside
+        document.addEventListener('click', (e) => {
+            const modal = document.getElementById('cartModal');
+            const cartIcon = document.querySelector('.cart-icon');
+            if (modal && !modal.contains(e.target) && !cartIcon.contains(e.target) && modal.classList.contains('active')) {
+                APP.toggleCart();
+            }
+        });
+
+        // FIX #29: Close cart modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('cartModal');
+                if (modal && modal.classList.contains('active')) {
+                    APP.toggleCart();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
