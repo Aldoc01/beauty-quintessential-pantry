@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beauty Quintessential's Pantry - Premium cereals, oats, milk, tea, and custard delivered nationwide">
+    <meta name="theme-color" content="#6B4F3A">
+    <meta name="robots" content="index, follow">
+    <title>BQ Pantry - Premium Breakfast Products | Nigeria</title>
+    <link rel="canonical" href="https://aldoc01.github.io/beauty-quintessential-pantry/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' font-size='50' fill='%236B4F3A'>🥣</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <img src="./logo.png" alt="Beauty Quintessential's Pantry Logo" class="logo" loading="eager" onerror="this.style.display='none'">
+                <span class="brand-name">BQ PANTRY</span>
+            </div>
+            <button class="cart-btn" aria-label="Shopping cart" aria-expanded="false">
+                <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-count" aria-live="polite" aria-atomic="true">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" role="banner">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <div class="hero-content">
+            <h1>Beauty Quintessential's Pantry</h1>
+            <p class="tagline">Every Bowl is Filled with Goodness</p>
+            <p class="hero-description">Premium cereals, oats, milk, tea, and custard delivered nationwide with quality you can trust</p>
+            <a href="#products" class="btn btn-primary">Shop Now</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Products Section -->
+        <section id="products" class="products-section">
+            <div class="container">
+                <h2>Our Premium Products</h2>
+                
+                <!-- Filters -->
+                <div class="filter-group" role="toolbar" aria-label="Product filters">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="small">Small</button>
+                    <button class="filter-btn" data-filter="medium">Medium</button>
+                    <button class="filter-btn" data-filter="big">Big</button>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="products-grid" role="region" aria-live="polite" aria-label="Product list">
+                    <!-- Products rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p class="section-description">Ready to order? Reach out and let's fill your bowl with goodness!</p>
+                
+                <div class="contact-grid">
+                    <a href="https://wa.me/2348020536581" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.748 5.41 2.164 7.723L3.513 21.3l8.332-2.189a9.9 9.9 0 004.773 1.215h.004c5.396 0 9.747-4.363 9.747-9.798a9.872 9.872 0 00-9.747-9.798M5.95 19.098l-.534-.852a8.17 8.17 0 01-1.792-4.376c0-4.506 3.657-8.169 8.157-8.169 2.176 0 4.22.84 5.76 2.36.54.54 1.023 1.16 1.432 1.843 4.506 0 8.169 3.657 8.169 8.157"/>
+                        </svg>
+                        <h3>WhatsApp</h3>
+                        <p>Quick & Direct</p>
+                        <span class="contact-cta">Chat Now</span>
+                    </a>
+
+                    <a href="https://www.facebook.com/share/1BKyvkwjxN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <h3>Facebook</h3>
+                        <p>Follow & Connect</p>
+                        <span class="contact-cta">Follow Us</span>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@beautyquintessent" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.1 1.82 2.89 2.89 0 0 1 2.31-4.64 2.86 2.86 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.96-.1z"/>
+                        </svg>
+                        <h3>TikTok</h3>
+                        <p>See Our Content</p>
+                        <span class="contact-cta">Follow Us</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BQ Pantry</h3>
+                    <p>"Every bowl is filled with goodness"</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Shop</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="https://wa.me/2348020536581" target="_blank" rel="noopener noreferrer">Order Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1BKyvkwjxN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook">f</a>
+                        <a href="https://www.tiktok.com/@beautyquintessent" target="_blank" rel="noopener noreferrer" aria-label="Follow on TikTok">♪</a>
+                        <a href="https://wa.me/2348020536581" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">W</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Beauty Quintessential's Pantry | Enugu, Nigeria | <a href="https://wa.me/2348020536581">Nationwide Delivery</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal" role="dialog" aria-labelledby="cartTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="cartTitle">Shopping Cart</h2>
+                <button class="modal-close" aria-label="Close cart" type="button">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items" role="region" aria-live="polite" aria-label="Cart items">
+                    <p class="empty-message">Your cart is empty</p>
+                </div>
+            </div>
+            <div class="modal-footer" id="cartFooter"></div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="modal-overlay" id="cartOverlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
