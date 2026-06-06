@@ -3,7 +3,7 @@
 // ============================================
 // SUPABASE CONFIG — replace these two lines
 // ============================================
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+const SUPABASE_URL = 'https://pwfnpnnoenoqlhlvfghp.supabase.co';
 const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
 
 let db = null;
