@@ -4,7 +4,7 @@
 // SUPABASE CONFIG — replace these two lines
 // ============================================
 const SUPABASE_URL = 'https://pwfnpnnoenoqlhlvfghp.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_ANON_KEY = 'sb_publishable_r_hwNGcjT1NgtLQ7o1CgsQ_OMVOmth1';
 
 let db = null;
 const supabaseReady = SUPABASE_URL !== 'YOUR_SUPABASE_URL';
