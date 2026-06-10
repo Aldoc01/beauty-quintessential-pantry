@@ -139,7 +139,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Beauty Quintessential's Pantry</p>
-            <button id="adminTrigger" class="admin-trigger" title="Admin Portal">Admin</button>
+            <button id="adminTrigger" class="admin-trigger" aria-label="Admin Portal" title="Admin Portal">Admin</button>
         </div>
     </div>
 </footer>
@@ -153,7 +153,7 @@
         </div>
         <div class="modal-body">
             <div class="cart-items" id="cartItems" role="region" aria-live="polite">
-                <p class="empty-message">Your cart is empty 🥣</p>
+                <p class="empty-message">Your cart is empty</p>
             </div>
         </div>
         <div class="modal-footer" id="cartFooter"></div>
@@ -221,7 +221,6 @@
             Sign Out
         </button>
     </aside>
-
     <div class="admin-main">
         <header class="admin-topbar">
             <div>
@@ -229,7 +228,6 @@
                 <span id="adminUserInfo" class="admin-user-info"></span>
             </div>
         </header>
-
         <div id="adminSectionProducts" class="admin-section active">
             <div id="adminProductList" class="admin-product-list">
                 <div class="admin-loading">
@@ -238,7 +236,6 @@
                 </div>
             </div>
         </div>
-
         <div id="adminSectionAdd" class="admin-section">
             <div class="admin-form-card">
                 <h2>Add New Product</h2>
